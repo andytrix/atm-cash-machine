@@ -26,6 +26,7 @@ Database: MySQL
 **Prerequisites**
 
 Ensure you have the following installed:  
+
 - Qt Creator (for UI development)
 - Node.js & npm (for backend)
 - MySQL Server (for database storage)
@@ -38,21 +39,34 @@ cd atm-cash-machine
 ```
 **2. Setup the Database**
 
-- Start your MySQL server.  
+- Start your MySQL server.
 - Import the database schema:
 
 ```bash
 mysql -u root -p < db_dump.sql
 ```
-**3. Start the Backend Server**
+
+**3. Configure Environment Variables**
+
+Create a .env file in the backend directory with the following content:  
+
+```bash
+DB_HOST=127.0.0.1
+DB_USER=bankuser
+DB_PASS=bankuser
+DB_NAME=bank-automat
+MY_TOKEN=supersecret
+DB_PORT=3306
+```
+
+**4. Start the Backend Server**
 
 ```bash
 cd backend  
 npm install
-npm install multer  
 node server.js  
 ```
-**4. Run the Qt Application**
+**5. Run the Qt Application**
 
 - Open Qt Creator.
 - Load the project file (.pro).
