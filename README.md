@@ -153,18 +153,18 @@ The system is structured into multiple tables:
 
 Below is the ER diagram representing the database structure:  
 
-<img width="886" alt="ER-kaavio-v1 3" src="https://github.com/user-attachments/assets/48b6d0eb-0a5a-4d1b-9ebf-ad9c83fb25a6" />
+<img width="886" alt="ER Diagram" src="https://github.com/andytrix/atm-cash-machine/blob/main/ER-diagram.png" />
 
 ### **Deployment Diagram**
 
 Shows how software components are distributed across different hardware and network nodes:  
 
-![Deployment_Diagram](https://github.com/user-attachments/assets/9e3e1934-8faa-452b-9d9a-d5c3147ad3fd)
+![Deployment Diagram](https://github.com/andytrix/atm-cash-machine/blob/main/Deployment_Diagram.png)
 
 ### **Class Diagram**
 
 Illustrates the relationships between key classes in the project:  
 
-![Luokkakaavio](https://github.com/user-attachments/assets/28c764c3-62d0-4250-a040-1e21812b6937)
+![Class Diagram](https://github.com/andytrix/atm-cash-machine/blob/main/Class_Diagram.png)
 
 
