@@ -78,7 +78,10 @@ node server.js
 ├── LICENSE                    # The license file specifying terms for using this project.
 ├── README.md                  # The main README file explaining the project.
 ├── .gitignore                 # Specifies files and directories to be ignored by Git.
-├── db_dump.sql                # SQL file containing the initial database schema 
+├── db_dump.sql                # SQL file containing the initial database schema.
+├── ER-diagram.png             # Entity-Relationship (ER) diagram visualizing the database structure.
+├── Class_Diagram.png          # Class diagram representing object-oriented relationships in the project.
+├── Deployment_Diagram.png     # Deployment diagram illustrating the system's deployment architecture.
 ├── backend/                   
 │   ├── bin/                   # Holds executables or compiled files related to backend.
 │   ├── www/                   # Contains web-related resources for the backend.
