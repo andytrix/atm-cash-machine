@@ -75,7 +75,7 @@ node server.js
 # Directory Structure
 
 ``` ATM/
-├── LICENSE                    # The license file specifying terms for using this
+├── LICENSE                    # The license file specifying terms for using this project.
 ├── README.md                  # The main README file explaining the project.
 ├── .gitignore                 # Specifies files and directories to be ignored by Git.
 ├── db_dump.sql                # SQL file containing the initial database schema 
@@ -100,7 +100,7 @@ node server.js
 │   │   ├── index.js           # The entry point for initializing the backend.
 │   │   ├── login.js           # Handles login-related routes.
 │   │   └── transaction.js     # Routes for transaction-related operations.
-│   ├── app.js                 # The main backend application file that sets up and middleware.
+│   ├── app.js                 # The main backend application file that sets up and configures middleware.
 │   ├── create_token.js        # Handles token creation for secure communication.
 │   ├── database.js            # Manages database connections and queries.
 │   ├── package-lock.json      # The exact versions of npm dependencies.
@@ -116,7 +116,7 @@ node server.js
 │   ├── customerdata.cpp       # Implements customer data functionality.
 │   ├── customerdata.h         # Header file for customer data functionality.
 │   ├── customerdata.ui        # The UI for displaying customer information.
-│   ├── environment.cpp        # Implements environment configuration functionali
+│   ├── environment.cpp        # Implements environment configuration functionality.
 │   ├── environment.h          # Header file for environment configuration.
 │   ├── login.cpp              # Implements login functionality.
 │   ├── login.h                # Header file for login functionality.
