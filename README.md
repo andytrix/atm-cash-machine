@@ -77,6 +77,7 @@ node server.js
 ``` ATM/
 ├── LICENSE                    # The license file specifying terms for using this
 ├── README.md                  # The main README file explaining the project.
+├── .gitignore                 # Specifies files and directories to be ignored by Git.
 ├── db_dump.sql                # SQL file containing the initial database schema 
 ├── backend/                   
 │   ├── bin/                   # Holds executables or compiled files related to backend.
