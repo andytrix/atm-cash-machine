@@ -84,7 +84,7 @@ node server.js
 │   ├── www/                   # Contains web-related resources for the backend.
 │   ├── models/                
 │   │   ├── account_model.js   # Defines the account model.
-│   │   ├── card_account_model.js # Manages the relationship between cards and ac
+│   │   ├── card_account_model.js # Manages the relationship between cards and accounts.
 │   │   ├── card_model.js      # Defines the card model.
 │   │   ├── customer_model.js  # Manages customer-related data.
 │   │   └── transaction_model.js # Manages transaction-related data.
@@ -104,7 +104,7 @@ node server.js
 │   ├── create_token.js        # Handles token creation for secure communication.
 │   ├── database.js            # Manages database connections and queries.
 │   ├── package-lock.json      # The exact versions of npm dependencies.
-│   └── package.json           # Defines the dependencies and scripts for the bac
+│   └── package.json           # Defines the dependencies and scripts for the backend.
 ├── bank-automat/
 │   ├── balance.cpp            # Implements balance-related logic.
 │   ├── balance.h              # Header file for balance functionality.
