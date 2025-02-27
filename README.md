@@ -1,6 +1,6 @@
 # ATM Cash Machine
 
-A feature-rich ATM simulator built with Qt, Node.js, and MySQL, supporting authentication, transactions, and card management—bringing a real banking experience to the digital world.
+Experience a full-featured ATM simulator powered by Qt, Node.js, and MySQL. With secure authentication, dynamic transactions, and comprehensive card management, it brings the authentic feel of real-world banking right to your screen.
 
 # Features
 
