@@ -18,10 +18,9 @@ Experience a full-featured ATM simulator powered by Qt, Node.js, and MySQL. With
 - [Creating a User and Linking a Card](#creating-a-user-and-linking-a-card)
 - [Directory Structure](#directory-structure)
 - [System, Database & Class Architecture](#system-database--class-architecture)
-  - [Database Schema](#database-schema)
   - [Entity-Relationship (ER) Diagram](#entity-relationship-er-diagram)
-  - [Class Diagram](#class-diagram)
   - [Deployment Diagram](#deployment-diagram)
+  - [Class Diagram](#class-diagram)
 
 # Features
 
