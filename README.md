@@ -269,6 +269,7 @@ Here we create two links:
 │   ├── public/                
 │   │   ├── stylesheets/
 │   │   │   └── style.css      # The stylesheet for the web interface.
+│   │   ├── images/            # Stores user-uploaded images, such as profile pictures.
 │   │   └── index.html         # The main HTML file for the web frontend.
 │   ├── routes/                
 │   │   ├── account.js         # Routes for account-related operations.
