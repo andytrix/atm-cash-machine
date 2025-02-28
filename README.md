@@ -32,7 +32,7 @@ Database: MySQL
 
 **Prerequisites**
 
-Ensure you have the following installed:  
+Make sure you have the following installed on your system:
 
 - Qt Creator (for UI development)
 - Node.js & npm (for backend)
@@ -47,7 +47,15 @@ cd atm-cash-machine
 **2. Setup the Database**
 
 - Start your MySQL server.
-- Import the database schema:
+- (Optional) Create the bankuser account if it does not exist yet. Log into MySQL (e.g., mysql -u root -p) and run:
+- 
+ ```bash
+CREATE USER 'bankuser'@'localhost' IDENTIFIED BY 'bankuser';
+GRANT ALL PRIVILEGES ON *.* TO 'bankuser'@'localhost';
+FLUSH PRIVILEGES;
+```
+
+- Import the database schema from the project directory (where db_dump.sql is located):
 
 ```bash
 mysql -u root -p < db_dump.sql
@@ -73,11 +81,90 @@ cd backend
 npm install
 npm start  
 ```
+By default, the server will listen on http://localhost:3000.
+
 **5. Run the Qt Application**
 
 - Open Qt Creator.
 - Load the project file (.pro).
 - Build and run the application.
+
+**6. Testing**
+You can test the backend endpoints using a tool like Postman or your web browser (e.g. http://localhost:3000/account).
+If your login route is something like POST /login, you’ll likely need to provide a card number and a PIN (which is hashed in the database).
+On successful login, the server should return a token. Copy that token from the response.
+On subsequent requests to protected endpoints, include the token in an Authorization: Bearer <token> header.
+
+# Creating a User and Linking a Card
+
+**Creating a User with a Single (Debit) Card**
+
+Insert a new customer:
+
+```bash
+INSERT INTO customer (idcustomer, fname, lname, thumbnail, created_at)
+VALUES (1, 'Aku', 'Ankka', 'testikuva.png', NOW());
+```
+- idcustomer is the primary key.
+- fname and lname are the user’s first and last names.
+- thumbnail can be any image filename or NULL if you’re not using profile pictures.
+
+Insert a new card:
+
+```bash
+INSERT INTO card (idcard, idcustomer, pin, cardtype, status, created_at, expiry_date)
+VALUES (
+    1,
+    1,
+    '$2a$10$B3.IloerXOogdYFYXAear.3qlcOZFA1C.RDJ3/kZdxKJD42knwTfS',  -- hashed PIN for "1234"
+    'single',  -- indicates this is a single-type card (debit or credit)
+    'active',
+    NOW(),
+    '2030-12-31 00:00:00'
+);
+```
+
+- cardtype='single' means this card is either debit or credit. We’ll link it as debit in the next steps.
+- status='active' indicates the card is ready for use.
+
+Insert a debit account:
+
+```bash
+INSERT INTO account (idaccount, idcustomer, type, credit_balance, credit_limit, debit_balance, created_at)
+VALUES (
+    1,
+    1,
+    'debit',
+    0.00,
+    0.00,
+    1000.00,  -- e.g., an initial debit balance
+    NOW()
+);
+```
+
+- type='debit' marks this account as a debit account.
+- debit_balance is the current amount of money available.
+
+Link the card to the account:
+
+```bash
+INSERT INTO card_account (idcard_account, idcard, idaccount, type)
+VALUES (
+    1,
+    1,
+    1,
+    'debit'
+);
+```
+
+- This tells the system that card 1 is associated with account 1 in a debit capacity.
+
+At this point, you have:
+
+- One customer (idcustomer=1)
+- One card (idcard=1)
+- One debit account (idaccount=1)
+- A card_account link specifying that card #1 is a debit card for account #1.
 
 # Directory Structure
 
