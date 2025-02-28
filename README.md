@@ -103,7 +103,7 @@ Insert a new customer:
 
 ```bash
 INSERT INTO customer (idcustomer, fname, lname, thumbnail, created_at)
-VALUES (1, 'Aku', 'Ankka', 'testikuva.png', NOW());
+VALUES (1, 'John', 'Doe', 'example.png', NOW());
 ```
 - idcustomer is the primary key.
 - fname and lname are the user’s first and last names.
@@ -116,7 +116,7 @@ INSERT INTO card (idcard, idcustomer, pin, cardtype, status, created_at, expiry_
 VALUES (
     1,
     1,
-    '$2a$10$B3.IloerXOogdYFYXAear.3qlcOZFA1C.RDJ3/kZdxKJD42knwTfS',  -- hashed PIN for "1234"
+    '$2a$10$Kf86Rkz9gt21rvkgX4/t6eWSaaH65ZECxywqQkIvouezrur9ZYZNC',  -- hashed PIN for "1234"
     'single',  -- indicates this is a single-type card (debit or credit)
     'active',
     NOW(),
@@ -165,6 +165,73 @@ At this point, you have:
 - One card (idcard=1)
 - One debit account (idaccount=1)
 - A card_account link specifying that card #1 is a debit card for account #1.
+
+**Creating a User with a Dual Card (Debit + Credit)**
+
+Insert a customer (If you’re using the same customer as above, you can skip re-inserting them. Otherwise, insert a new one with a unique idcustomer):
+
+```bash
+INSERT INTO customer (idcustomer, fname, lname, thumbnail, created_at)
+VALUES (<unique idcustomer>, 'Jane', 'Doe', 'example.png', NOW());
+```
+Insert a new card:
+
+```bash
+INSERT INTO card (idcard, idcustomer, pin, cardtype, status, created_at, expiry_date)
+VALUES (
+    2,
+    1,
+    '$2a$10$Kf86Rkz9gt21rvkgX4/t6eWSaaH65ZECxywqQkIvouezrur9ZYZNC',  -- hashed PIN for "1234"
+    'dual',   -- indicates a dual card
+    'active',
+    NOW(),
+    '2030-12-31 00:00:00'
+);
+```
+- cardtype='dual' means this single card can handle both debit and credit.
+
+Insert a credit account:
+
+```bash
+INSERT INTO account (idaccount, idcustomer, type, credit_balance, credit_limit, debit_balance, created_at)
+VALUES (
+    2,
+    1,
+    'credit',
+    0.00,
+    2000.00,  -- for example, a 2000 credit limit
+    0.00,
+    NOW()
+);
+```
+
+Insert a debit account:
+
+```bash
+INSERT INTO account (idaccount, idcustomer, type, credit_balance, credit_limit, debit_balance, created_at)
+VALUES (
+    3,
+    1,
+    'debit',
+    0.00,
+    0.00,
+    1500.00,  -- e.g., an initial debit balance
+    NOW()
+);
+```
+Link the card to both accounts:
+
+```bash
+INSERT INTO card_account (idcard_account, idcard, idaccount, type)
+VALUES 
+    (2, 2, 3, 'debit'),
+    (3, 2, 2, 'credit');
+```
+
+Here we create two links:
+
+- idcard_account=2 for the debit account (account #3)
+- idcard_account=3 for the credit account (account #2)
 
 # Directory Structure
 
