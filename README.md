@@ -2,6 +2,13 @@
 
 Experience a full-featured ATM simulator powered by Qt, Node.js, and MySQL. With secure authentication, dynamic transactions, and comprehensive card management, it brings the authentic feel of real-world banking right to your screen.
 
+<p align="left">
+  <img src="https://github.com/user-attachments/assets/049496ca-0f47-4c48-813c-28f51802c0b7" 
+       alt="ATM 1" width="480" style="margin-right: 10px;" />
+  <img src="https://github.com/user-attachments/assets/2e31eb09-a4d5-45df-8d2d-3d76bdf1618b"
+       alt="ATM 2" width="480" />
+</p>
+
 # Features
 
 - **User Authentication:** Login with a PIN-based system secured using bcrypt hashing
