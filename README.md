@@ -71,7 +71,7 @@ DB_PORT=3306
 ```bash
 cd backend  
 npm install
-node server.js  
+npm start  
 ```
 **5. Run the Qt Application**
 
