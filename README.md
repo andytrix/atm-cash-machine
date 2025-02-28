@@ -92,6 +92,7 @@ npm start
 ├── backend/                   
 │   ├── bin/                   # Holds executables or compiled files related to backend.
 │   ├── www/                   # Contains web-related resources for the backend.
+│   ├── .env                   # Example environment file with placeholder data;
 │   ├── models/                
 │   │   ├── account_model.js   # Defines the account model.
 │   │   ├── card_account_model.js # Manages the relationship between cards and accounts.
