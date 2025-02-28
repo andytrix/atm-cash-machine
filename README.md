@@ -55,7 +55,7 @@ mysql -u root -p < db_dump.sql
 
 **3. Configure Environment Variables**
 
-Create a .env file in the backend directory with the following content:  
+Use the .env file as a template or create a .env file in the backend directory with the following content:
 
 ```bash
 DB_HOST=127.0.0.1
